@@ -1,1 +1,3 @@
-##CSS guide
+## CSS guide
+
+CSS code writing standards.
