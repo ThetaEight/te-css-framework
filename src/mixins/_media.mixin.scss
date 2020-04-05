@@ -40,7 +40,7 @@ $max-breakpoints: (
   }
 
 }
-@mixin screen-min-max($size: '-de', $min, $max) {
+@mixin screen-min-max($size: '-de', $min: 600, $max: 1439) {
   @if $size != '-cu' {
     @media screen and (min-width: map_get($min-breakpoints, $min)) and (min-width: map_get($min-breakpoints, $max)) {
       @content;
