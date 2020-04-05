@@ -7,7 +7,7 @@
   box-sizing: border-box;
   outline: none !important;
 
-  &::before, &::after, &:hover, &:focus, &:active {
+  &::before, &::after, &:before, &:after, &:hover, &:focus, &:active {
     outline: none !important;
   }
 }
