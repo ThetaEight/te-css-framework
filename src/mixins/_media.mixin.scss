@@ -1,22 +1,26 @@
-$min-breakpoints: (
-  -de: 600px,
-  -sm: 600px,
-  -md: 767px,
-  -lg: 992px,
-  -xl: 1440px
+$te-min-breakpoints: (
+  -de: 600px, // default size - todo more correct mobile first
+  -sm: 600px, // small size
+  -md: 767px, // medium size
+  -lg: 992px, // large size
+  -xl: 1440px // extra large size
 );
 
-$max-breakpoints: (
-  -de: 600px,
-  -sm: 600px,
-  -md: 766px,
-  -lg: 991px,
-  -xl: 1439px
+$te-max-breakpoints: (
+  -de: 600px, // default size - todo more correct mobile first
+  -sm: 600px, // small size
+  -md: 766px, // medium size
+  -lg: 991px, // large size
+  -xl: 1439px // extra large size
 );
-
-@mixin screen-max($size: '-de', $pixels: 600) {
+/**
+* @param {string} $size - breakpoints key name or '-cu' for custom size
+* @param {number} pixels - custom size when $size param set to '-cu'
+* @example te-screen-max('-md'); OR te-screen-max('-cu', 990);
+*/
+@mixin te-screen-max($size: '-de', $pixels: 600) {
   @if $size != '-cu' {
-    @media screen and (max-width: map_get($max-breakpoints, $size)) {
+    @media screen and (max-width: map_get($te-max-breakpoints, $size)) {
       @content;
     }
   }
@@ -26,10 +30,16 @@ $max-breakpoints: (
     }
   }
 }
-@mixin screen-min($size: '-de', $pixels: 600) {
+
+/**
+* @param {string} $size - breakpoints key name or '-cu' for custom size
+* @param {number} pixels - custom size when $size param set to '-cu'
+* @example te-screen-min('-md'); OR te-screen-min('-cu', 990);
+*/
+@mixin te-screen-min($size: '-de', $pixels: 600) {
 
   @if $size != '-cu' {
-    @media screen and (min-width: map_get($min-breakpoints, $size)) {
+    @media screen and (min-width: map_get($te-min-breakpoints, $size)) {
       @content;
     }
   }
@@ -40,9 +50,10 @@ $max-breakpoints: (
   }
 
 }
-@mixin screen-min-max($size: '-de', $min: 600, $max: 1439) {
+
+@mixin te-screen-min-max($size: '-de', $min: 600, $max: 1439) {
   @if $size != '-cu' {
-    @media screen and (min-width: map_get($min-breakpoints, $min)) and (min-width: map_get($min-breakpoints, $max)) {
+    @media screen and (min-width: map_get($te-min-breakpoints, $min)) and (min-width: map_get($te-min-breakpoints, $max)) {
       @content;
     }
 
